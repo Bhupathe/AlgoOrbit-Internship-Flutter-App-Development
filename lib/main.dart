@@ -1,8 +1,3 @@
-// remove const in await tester.pumpWidget(const MyApp());
-// in test/widget_test.dart
-
-// app-release.apk is the real apk not app-debug.apk
-// flutter build apk
 import 'package:flutter/material.dart';
 
 void main(){
@@ -10,192 +5,127 @@ void main(){
 }
 
 class MyApp extends StatelessWidget{
-  @override
   Widget build(BuildContext context){
-    return MaterialApp( // root of the app
+    return MaterialApp(
+      home: Home(),
       debugShowCheckedModeBanner: false,
-      home: MyHome(),
+      color: Colors.cyan.shade400,
     );
   }
 }
 
-class MyHome extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold( // Screen of the app
+class Home extends StatelessWidget{
+  Widget build(BuildContext context){
+    return Scaffold(
       appBar: AppBar(
-        title: Text("My First App"),
-        //title: Text("MY FIRST APP", style: TextStyle(color: Colors.black87),),
-        backgroundColor: Colors.red.shade300,
+        title: Text("Day 2 of the Internship"),
+        backgroundColor: Colors.lightGreen.shade300,
         centerTitle: true,
       ),
 
-
-      // Task: Remove the Center and see the output
-      /*body: Center( // Displays the widget in the middle of the screen
-        /*child: Text("Hello World", // shortcut alt + enter for text to wrap around center
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.indigo.shade400,
-          ),*/
-
-        child: Center(
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.green.shade200,
-            child: Center(
-              child: Text("Welcome to the Flutter",
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-            )
-          ),
-        ),
-      ),*/
-
-        // Creating columns
-      /*body: Center(
+      body: Center(
         child: Column(
           children: [
-            Text("Welcome",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-            SizedBox(height: 20),
-            Text("Mr. Bhupathe",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-            Text("Please select something",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-            SizedBox(height: 30),
+            SizedBox(height: 10,),
             Container(
-              width: 200,
-              height: 200,
-              color: Colors.lightBlue.shade100
-            ),
-            SizedBox(height: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade400,
-                child: Center(
-                child: Text("Hello World"),
-            )
-            ),
-            /*SizedBox(height: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade700
-            ),*/
-          ],
-        ),
-      ),*/
-
-      // Creating Row
-      /*body: Center(
-        child: Row(
-          children: [
-            Text("Welcome",
-              style: TextStyle(
-                fontSize: 25,
+              width: double.infinity,
+              height: 50,
+              child: Center(
+                child: Text('A',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.blueGrey,
+                    ),
+                ),
               ),
+              color: Colors.lightGreen.shade500,
             ),
-            SizedBox(width: 20),
-            Text("Mr. Bhupathe",
-              style: TextStyle(
-                fontSize: 25,
+            SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              height: 50,
+              child: Center(
+                child: Text('B',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.blueGrey,
+                    )
+                ),
               ),
+              color: Colors.cyan.shade300,
             ),
-            Text("Please select something",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-            SizedBox(width: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade100
-            ),
-            SizedBox(width: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade400,
-                child: Center(
-                  child: Text("Hello World"),
-                )
-            ),
-            /*SizedBox(height: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade700
-            ),*/
-          ],
-        ),
-      ),*/
-
-      // Combination of the Row and Column
-      body: Center(
-        child: Row(
-          children: [
-            Column(
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("Welcome",
-                  style: TextStyle(
-                    fontSize: 25,
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.green.shade300,
+                  ),
+                  child: Center(
+                    child: Text('A',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.blueGrey,
+                        )
+                    ),
                   ),
                 ),
-                SizedBox(height: 20),
-                Text("Mr. Bhupathe",
-                  style: TextStyle(
-                    fontSize: 25,
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.blue.shade300,
+                  ),
+                  child: Center(
+                    child: Text('B',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.blueGrey,
+                        )
+                    ),
                   ),
                 ),
-                SizedBox(height: 20),
-                Text("Please select something",
-                  style: TextStyle(
-                    fontSize: 25,
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    //color: Colors.purple.shade300,
+                    image: DecorationImage(
+                        image: AssetImage("assets/Soul_land.jpg"),
+                      fit: BoxFit.cover
+                  ),
+                  //child: Center(
+                    /*child: Text('C',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.blueGrey,
+                        )
+                    ),*/
+                    //child: Image.asset("assets/Soul_land.jpg"),
                   ),
                 ),
-              ],
+              ]
             ),
-            SizedBox(width: 30),
+            SizedBox(height: 10,),
             Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade100
-            ),
-            SizedBox(width: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade400,
-                child: Center(
-                  child: Text("Hello World"),
-                )
-            ),
-            /*SizedBox(height: 30),
-            Container(
-                width: 200,
-                height: 200,
-                color: Colors.lightBlue.shade700
-            ),*/
-          ],
+              width: double.infinity,
+              height: 400,
+              child: Image.asset("assets/Soul_land.jpg"),
+            )
+          ]
         ),
-      ),
+      )
     );
   }
 }
