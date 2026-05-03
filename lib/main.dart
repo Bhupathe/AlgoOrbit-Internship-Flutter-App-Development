@@ -1,129 +1,98 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(myApp());
 }
 
-class MyApp extends StatelessWidget{
+class myApp extends StatelessWidget{
+  @override
   Widget build(BuildContext context){
     return MaterialApp(
-      home: Home(),
+      home: ButtonUsage(),
       debugShowCheckedModeBanner: false,
-      color: Colors.cyan.shade400,
     );
   }
 }
 
-class Home extends StatelessWidget{
-  Widget build(BuildContext context){
+class ButtonUsage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Day 2 of the Internship"),
-        backgroundColor: Colors.lightGreen.shade300,
+        title: Text("User Input"),
         centerTitle: true,
+        backgroundColor: Colors.blue.shade200,
       ),
+      /*body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: (){
+                  print("Elevated Button");
+                },
+                onLongPress: (){
+                  print("Long Pressed Elevated Button");
+                },
+                child: Text("Click"),
+            ),
+            SizedBox(height: 10,),
+            TextButton(onPressed: (){
+              print("Submitted");
+            },
+                onLongPress: (){
+                  print("Long Submit");
+                },
+                child: Text("Submit",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.red.shade400,
+                  )
+                ),
+            ),
+            OutlinedButton(
+                onPressed: (){
+                  print("Outline Button pressed");
+                },
+                child: Text("Outline"),
+            ),
+          ],
+        ),
+      ),*/
 
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 10,),
-            Container(
-              width: double.infinity,
-              height: 50,
+            Center(
               child: Center(
-                child: Text('A',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.blueGrey,
+                child: Container(
+                  width: 300,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: "Enter your name",
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.person),
+                      prefixIconColor: Colors.blue.shade200,
                     ),
+                  ),
                 ),
               ),
-              color: Colors.lightGreen.shade500,
             ),
-            SizedBox(height: 10),
-            Container(
-              width: double.infinity,
-              height: 50,
-              child: Center(
-                child: Text('B',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.blueGrey,
-                    )
+            SizedBox(height: 10,),
+            Center(
+              child: Container(
+                width: 300,
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your age",
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
-              color: Colors.cyan.shade300,
             ),
-            SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.green.shade300,
-                  ),
-                  child: Center(
-                    child: Text('A',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.blueGrey,
-                        )
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue.shade300,
-                  ),
-                  child: Center(
-                    child: Text('B',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.blueGrey,
-                        )
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    //color: Colors.purple.shade300,
-                    image: DecorationImage(
-                        image: AssetImage("assets/Soul_land.jpg"),
-                      fit: BoxFit.cover
-                  ),
-                  //child: Center(
-                    /*child: Text('C',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.blueGrey,
-                        )
-                    ),*/
-                    //child: Image.asset("assets/Soul_land.jpg"),
-                  ),
-                ),
-              ]
-            ),
-            SizedBox(height: 10,),
-            Container(
-              width: double.infinity,
-              height: 400,
-              child: Image.asset("assets/Soul_land.jpg"),
-            )
-          ]
+          ],
         ),
       )
     );
